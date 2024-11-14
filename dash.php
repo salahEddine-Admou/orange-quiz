@@ -39,22 +39,16 @@
                 <span class="logo">Orange Quiz</span>
             </div>
             <?php
-include_once 'dbConnection.php';
 session_start();
-
-// Check if session email is set
+include_once 'dbConnection.php';
 if (!(isset($_SESSION['email']))) {
     header("Location: index.php");
-    exit;  // Stop further execution after header redirect
+    exit; 
 }
-
-// Session email is set, proceed with getting the name
 $name = $_SESSION['name'];
-
-// Now output the user info (ensure no output before header)
-echo '<span class="pull-right top title1"><span class="log1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp;Hello,</span> 
+echo '<span class="pull-right top title1"><span class="log1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp;Hello,</span>
 <a href="account.php" class="log log1">' . $name . '</a>&nbsp;|&nbsp;<a href="logout.php?q=account.php" class="log">
-<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;Signout</a></span>';
+<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;Signout</button></a></span>';
 ?>
 
 
